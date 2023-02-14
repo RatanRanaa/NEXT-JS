@@ -1,0 +1,17 @@
+.Blog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Blog h3 {
+     cursor: pointer;
+     padding-top: 4vh;
+}
+
+.Blog p {
+    width: 50vw;
+    text-align: center;
+    color: brown;
+}
