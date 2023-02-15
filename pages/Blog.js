@@ -1,18 +1,29 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from '../styles/Blog.module.css'
 import Link from 'next/link'
 
 const Blog = () => {
+  const [Blogs, setBlogs] = useState([])
+  useEffect(() => {
+    console.log("is running")
+    fetch("http://localhost:3000/api/hello").then((a)=>{
+      return a.json();})
+      .then((parsed)=>{
+        console.log(parsed)
+        setBlogs(parsed)
+      })
+    },[])
+  
   return (
     <>
     <div className={styles.Blog}>
-        <h1>Blog post</h1>
-        <Link href={"/Blogpost/learn-javaScript"} ><h3>Product 1</h3></Link>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, repudiandae maiores magnam fugiat sint vitae ut veniam tenetur animi eligendi nobis in labore, autem ipsum sed expedita commodi. Mollitia, corrupti. Reiciendis tempora quae voluptate nostrum aliquid harum nesciunt? Aliquam, amet corporis? Fugiat, rem exercitationem hic pariatur ullam quibusdam aliquam sunt.</p>
-        <h3>Product 2</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, repudiandae maiores magnam fugiat sint vitae ut veniam tenetur animi eligendi nobis in labore, autem ipsum sed expedita commodi. Mollitia, corrupti. Reiciendis tempora quae voluptate nostrum aliquid harum nesciunt? Aliquam, amet corporis? Fugiat, rem exercitationem hic pariatur ullam quibusdam aliquam sunt.</p>
-        <h3>Product 3</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, repudiandae maiores magnam fugiat sint vitae ut veniam tenetur animi eligendi nobis in labore, autem ipsum sed expedita commodi. Mollitia, corrupti. Reiciendis tempora quae voluptate nostrum aliquid harum nesciunt? Aliquam, amet corporis? Fugiat, rem exercitationem hic pariatur ullam quibusdam aliquam sunt.</p>
+      {Blogs.map((blogitem)=>{
+        return <div key={blogitem.Slug}>
+          {/* <h1>{blogitem.title}</h1> */}
+          <Link href={`/Blogpost/${blogitem.Slug}`} ><h3 className={styles.blogitem3}>{blogitem.title}</h3></Link>
+          <h6>{blogitem.Content}</h6>
+        </div>
+      })}
     </div>
     </>
   )

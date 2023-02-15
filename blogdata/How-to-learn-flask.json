@@ -1,5 +1,6 @@
 {
     "title" : "Hello flask",
     "Content" : "https://www.bing.com/search?q=wikipedia&cvid=30728bd67a5f4bb0ac8213585f7d4090&aqs=edge.1.69i59j46j69i57j46j0j46l2j0l2.1818j0j1&pglt=43&FORM=ANNTA1&PC=U531",
-    "author"  : "Ratan Rana"
+    "author"  : "Ratan Rana",
+    "Slug": "how-to-learn-flask"
 }
