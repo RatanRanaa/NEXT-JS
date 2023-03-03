@@ -67,10 +67,10 @@ const Contact = () => {
             <input type="password" className="form-control" id="exampleInputPassword1"/>
           </div> */}
           <div className={styles.mb3}>
-            <label htmlFor="desc">Comments</label>
+            <label htmlFor="desc" className={styles.formlabel}>Comments</label>
             <textarea value={desc} onChange={handleChange} className="form-control" placeholder="Leave a comment here" name='desc' id="desc"/>
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className={styles.formlabel}>Submit</button>
         </form>
       </div>
     </>
